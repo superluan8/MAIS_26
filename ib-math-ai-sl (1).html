@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISHCMC Class of 2026 — Math AI SL Revision</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<style>
+  :root {
+    --ib:#003876; --ib-mid:#1a56a0; --ib-light:#2d7dd2; --ib-pale:#e8f2fb;
+    --bg:#f0f5fb; --surface:#ffffff; --card:#ffffff; --border:#cddaed;
+    --accent:#003876; --accent2:#1a56a0; --accent3:#f59e0b; --accent4:#e63946;
+    --text:#1e2a3a; --muted:#5a6a82; --heading:#003876;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden}
+
+  /* ── NAV ── */
+  nav{position:sticky;top:0;z-index:100;background:#003876;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:66px;box-shadow:0 2px 16px rgba(0,56,118,.3)}
+  .logo{display:flex;align-items:center;gap:.75rem}
+  .logo img{height:38px;filter:brightness(0) invert(1);opacity:.95}
+  .logo-divider{width:1px;height:30px;background:rgba(255,255,255,.3)}
+  .logo-text{font-family:'Syne',sans-serif;font-weight:700;font-size:.92rem;color:#fff;line-height:1.25}
+  .logo-text span{display:block;font-size:.7rem;font-weight:400;opacity:.7;letter-spacing:.05em}
+  .nav-links{display:flex;gap:.2rem}
+  .nav-links a{color:rgba(255,255,255,.75);text-decoration:none;padding:.4rem .9rem;border-radius:6px;font-size:.84rem;font-weight:500;transition:all .2s}
+  .nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,.18)}
+
+  /* ── HERO ── */
+  .hero{padding:3.5rem 2rem 3.5rem;text-align:center;position:relative;overflow:hidden;background:linear-gradient(150deg,#002f63 0%,#003876 40%,#1a56a0 75%,#2d7dd2 100%)}
+  .hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:52px;background:var(--bg);clip-path:ellipse(58% 100% at 50% 100%)}
+  .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.28);color:#fff;border-radius:100px;padding:.3rem 1rem;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.2rem}
+  .hero h1{font-family:'Syne',sans-serif;font-size:clamp(1.9rem,4.5vw,3.2rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:.6rem}
+  .hero h1 em{color:#7ec8ff;font-style:normal}
+  .hero p{font-size:1rem;color:rgba(255,255,255,.75);max-width:540px;margin:0 auto 2rem;line-height:1.7}
+  .hero-stats{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;margin-bottom:1.8rem}
+  .hero-stat{text-align:center}
+  .hero-stat .num{font-family:'DM Mono',monospace;font-size:1.7rem;font-weight:500;color:#fff}
+  .hero-stat .label{font-size:.72rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.07em}
+
+  /* ── COUNTDOWN ── */
+  .countdown-section{display:flex;justify-content:center;gap:.9rem;flex-wrap:wrap;margin-bottom:3rem;padding:0 1rem}
+  .countdown-card{background:rgba(255,255,255,.13);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:1rem 1.3rem;min-width:155px;text-align:center;position:relative;overflow:hidden;transition:transform .2s}
+  .countdown-card:hover{transform:translateY(-2px)}
+  .countdown-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+  .countdown-card.mock::before{background:linear-gradient(90deg,#fcd34d,#f87171)}
+  .countdown-card.ib::before{background:linear-gradient(90deg,#93c5fd,#fff)}
+  .cd-label{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem;color:rgba(255,255,255,.65)}
+  .cd-exam{font-family:'Syne',sans-serif;font-weight:700;font-size:.83rem;color:#fff;margin-bottom:.4rem;line-height:1.3}
+  .cd-date{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.45rem}
+  .cd-days{font-family:'DM Mono',monospace;font-size:2.4rem;font-weight:500;line-height:1;margin-bottom:.15rem}
+  .countdown-card.mock .cd-days{color:#fcd34d}
+  .countdown-card.ib .cd-days{color:#93c5fd}
+  .cd-sub{font-size:.67rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em}
+  .countdown-card.done .cd-days{font-size:1.3rem;color:#86efac}
+
+  /* ── TABS ── */
+  .section-tabs{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;padding:1.3rem 2rem;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 1px 6px rgba(0,56,118,.06)}
+  .tab-btn{background:var(--bg);border:1px solid var(--border);color:var(--muted);padding:.5rem 1.15rem;border-radius:8px;cursor:pointer;font-size:.84rem;font-weight:500;font-family:'DM Sans',sans-serif;transition:all .2s;display:flex;align-items:center;gap:.4rem}
+  .tab-btn:hover{border-color:var(--ib-mid);color:var(--ib-mid)}
+  .tab-btn.active{background:var(--ib);border-color:var(--ib);color:#fff;font-weight:700}
+
+  /* ── MAIN / SECTIONS ── */
+  main{max-width:1100px;margin:0 auto;padding:1.5rem 2rem 5rem}
+  section{display:none;animation:fadeUp .35s ease}
+  section.active{display:block}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+  .section-header{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;padding-bottom:1rem;border-bottom:2px solid var(--ib-pale)}
+  .section-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+  .section-header h2{font-family:'Syne',sans-serif;font-size:1.55rem;font-weight:700;color:var(--ib)}
+  .section-header p{font-size:.88rem;color:var(--muted);margin-top:.15rem}
+
+  /* ── TOPIC CARDS ── */
+  .topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem}
+  .topic-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.4rem;cursor:pointer;transition:all .2s;position:relative;overflow:hidden;box-shadow:0 1px 4px rgba(0,56,118,.06)}
+  .topic-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:12px 12px 0 0}
+  .topic-card:hover{border-color:#a8bdd8;transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,56,118,.1)}
+  .topic-card .topic-num{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted);margin-bottom:.5rem}
+  .topic-card h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--ib);margin-bottom:.5rem}
+  .topic-card p{font-size:.82rem;color:var(--muted);line-height:1.6}
+  .topic-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.9rem}
+  .tag{font-size:.7rem;font-weight:500;padding:.2rem .55rem;border-radius:4px;border:1px solid transparent}
+  .progress-bar{background:var(--border);border-radius:4px;height:4px;margin-top:.9rem}
+  .progress-fill{height:100%;border-radius:4px;transition:width .4s}
+  .t1::before{background:#1a56a0}.t2::before{background:#2d7dd2}.t3::before{background:#f59e0b}.t4::before{background:#e63946}.t5::before{background:#7c3aed}
+  .expand-btn{margin-top:1rem;width:100%;background:transparent;border:1px dashed var(--border);border-radius:7px;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:.78rem;padding:.45rem .8rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:.4rem}
+  .expand-btn:hover{border-color:var(--ib-mid);color:var(--ib-mid)}
+  .concept-body{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);animation:fadeUp .25s ease}
+  .concept-body.open{display:block}
+  .concept-section{margin-bottom:1rem}.concept-section:last-child{margin-bottom:0}
+  .concept-label{font-family:'DM Mono',monospace;font-size:.68rem;font-weight:500;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.4rem}
+  .concept-list{list-style:none;display:flex;flex-direction:column;gap:.35rem}
+  .concept-list li{font-size:.81rem;color:var(--text);line-height:1.5;padding-left:1.1rem;position:relative}
+  .concept-list li::before{content:'→';position:absolute;left:0;color:var(--ib-light);font-size:.75rem}
+  .concept-list li strong{color:var(--ib)}
+  .concept-tip{margin-top:.8rem;padding:.55rem .8rem;border-radius:6px;font-size:.79rem;line-height:1.5}
+  .concept-watchout{margin-top:.5rem;padding:.55rem .8rem;border-radius:6px;font-size:.79rem;line-height:1.5;background:rgba(230,57,70,.06);border-left:3px solid rgba(230,57,70,.35);color:#9b1c26}
+
+  /* ── FORMULAS ── */
+  .formula-filters,.q-filters{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.5rem}
+  .filter-btn{background:#fff;border:1px solid var(--border);color:var(--muted);padding:.3rem .8rem;border-radius:6px;cursor:pointer;font-size:.8rem;font-family:inherit;transition:all .2s}
+  .filter-btn.on{background:var(--ib-pale);border-color:var(--ib-mid);color:var(--ib)}
+  .formula-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem}
+  .formula-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.2rem;box-shadow:0 1px 4px rgba(0,56,118,.05)}
+  .formula-card .fname{font-size:.78rem;font-weight:700;color:var(--ib-mid);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.6rem}
+  .formula-display{background:var(--ib-pale);border:1px solid #c0d4ee;border-radius:8px;padding:.9rem 1rem;margin-bottom:.7rem;overflow-x:auto;text-align:center;min-height:3.2rem;display:flex;align-items:center;justify-content:center}
+  .formula-display .katex{color:var(--ib);font-size:1.05rem}
+  .formula-display .katex-display{margin:.15rem 0}
+  .formula-card .fexplain{font-size:.83rem;color:var(--text);line-height:1.65}
+  .formula-card .fwhere{font-size:.77rem;color:var(--muted);margin-top:.5rem;font-family:'DM Mono',monospace}
+  .formula-tip{margin-top:.7rem;padding:.55rem .8rem;background:#fffbeb;border-left:3px solid var(--accent3);border-radius:0 6px 6px 0;font-size:.79rem;color:#92400e}
+
+  /* ── QUESTIONS ── */
+  .q-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1rem;box-shadow:0 1px 4px rgba(0,56,118,.05)}
+  .q-meta{display:flex;gap:.6rem;align-items:center;margin-bottom:.9rem;flex-wrap:wrap}
+  .q-badge{font-size:.7rem;font-weight:700;padding:.2rem .6rem;border-radius:5px;text-transform:uppercase;letter-spacing:.05em}
+  .badge-easy{background:rgba(34,197,94,.12);color:#166534}.badge-medium{background:rgba(245,158,11,.1);color:#92400e}.badge-hard{background:rgba(230,57,70,.12);color:#9b1c26}.badge-topic{background:var(--ib-pale);color:var(--ib)}
+  .q-text{font-size:.95rem;line-height:1.7;color:var(--text);margin-bottom:1.2rem}
+  .reveal-btn{background:transparent;border:1px solid var(--border);color:var(--muted);padding:.5rem 1.1rem;border-radius:7px;cursor:pointer;font-size:.82rem;font-family:inherit;transition:all .2s}
+  .reveal-btn:hover{border-color:var(--ib-mid);color:var(--ib-mid)}
+  .solution{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)}
+  .solution.shown{display:block;animation:fadeUp .25s ease}
+  .solution h4{font-family:'Syne',sans-serif;font-size:.85rem;color:var(--ib);margin-bottom:.6rem}
+  .solution ol{padding-left:1.2rem}
+  .solution li{font-size:.87rem;line-height:1.7;color:var(--text);margin-bottom:.3rem}
+
+  /* ── GDC ── */
+  .gdc-selector{display:flex;gap:.5rem;margin-bottom:1.8rem}
+  .gdc-btn{flex:1;padding:.8rem 1rem;border-radius:10px;border:2px solid var(--border);background:#fff;color:var(--muted);cursor:pointer;font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;transition:all .2s;text-align:center}
+  .gdc-btn.active{border-color:var(--ib);color:var(--ib);background:var(--ib-pale)}
+  .gdc-section{display:none}.gdc-section.active{display:block;animation:fadeUp .3s ease}
+  .skill-list{display:flex;flex-direction:column;gap:.8rem}
+  .skill-item{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,56,118,.05)}
+  .skill-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.2rem;cursor:pointer;transition:background .2s}
+  .skill-header:hover{background:var(--ib-pale)}
+  .skill-title{display:flex;align-items:center;gap:.8rem}
+  .skill-title .icon{font-size:1.1rem}
+  .skill-title h3{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:var(--ib)}
+  .skill-title p{font-size:.78rem;color:var(--muted);margin-top:.1rem}
+  .chevron{color:var(--muted);transition:transform .25s;font-size:.9rem}
+  .skill-item.open .chevron{transform:rotate(180deg)}
+  .skill-body{display:none;padding:0 1.2rem 1.2rem}
+  .skill-item.open .skill-body{display:block;animation:fadeUp .2s ease}
+  .steps-list{list-style:none;counter-reset:step}
+  .steps-list li{counter-increment:step;display:flex;gap:.9rem;align-items:flex-start;margin-bottom:.7rem;font-size:.85rem;color:var(--text);line-height:1.6}
+  .steps-list li::before{content:counter(step);background:var(--ib);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;font-family:'DM Mono',monospace;flex-shrink:0;margin-top:.1rem}
+  .key-btn{display:inline-block;background:#f0f5fb;border:1px solid #c0d4ee;border-bottom:3px solid #a8bdd8;color:var(--ib);font-family:'DM Mono',monospace;font-size:.75rem;padding:.15rem .45rem;border-radius:5px;margin:0 .1rem}
+  .gdc-note{margin-top:.9rem;padding:.7rem 1rem;background:var(--ib-pale);border-left:3px solid var(--ib-mid);border-radius:0 7px 7px 0;font-size:.81rem;color:var(--ib)}
+  .screen-sim{background:#eaf4fb;border:2px solid #b8d8f0;border-radius:8px;padding:.8rem 1rem;font-family:'DM Mono',monospace;font-size:.82rem;color:#003876;margin:.8rem 0;line-height:1.7}
+
+  /* ── FOOTER ── */
+  footer{border-top:1px solid var(--border);text-align:center;padding:2rem;color:var(--muted);font-size:.8rem;background:#fff}
+  footer a{color:var(--ib-mid);text-decoration:none}
+
+  @media(max-width:640px){
+    nav{padding:0 1rem}
+    .logo-text{display:none}
+    .hero h1{font-size:1.8rem}
+    .hero-stats{gap:1.5rem}
+    .gdc-selector{flex-direction:column}
+    .countdown-section{gap:.6rem}
+    .countdown-card{min-width:140px}
+  }
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">
+    <img src="data:image/jpeg;base64,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" alt="ISHCMC">
+    <div class="logo-divider"></div>
+    <div class="logo-text">Math AI SL Revision<span>ISHCMC · Class of 2026</span></div>
+  </div>
+  <div class="nav-links">
+    <a href="#" onclick="switchTab('syllabus');return false" id="nav-syllabus" class="active">Syllabus</a>
+    <a href="#" onclick="switchTab('formulas');return false" id="nav-formulas">Formulas</a>
+    <a href="#" onclick="switchTab('questions');return false" id="nav-questions">Questions</a>
+    <a href="#" onclick="switchTab('gdc');return false" id="nav-gdc">GDC Skills</a>
+  </div>
+</nav>
+<div class="hero">
+  <div class="hero-badge">✦ ISHCMC · Class of 2026 · IB Diploma Programme</div>
+  <h1>Math AI SL<br><em>Revision Hub</em></h1>
+  <p>Everything you need to ace Math AI SL — syllabus at a glance, LaTeX formulas explained, IB-style practice questions, and GDC mastery.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">5</div><div class="label">Topics</div></div>
+    <div class="hero-stat"><div class="num">25</div><div class="label">Formulas</div></div>
+    <div class="hero-stat"><div class="num">30+</div><div class="label">Practice Q's</div></div>
+    <div class="hero-stat"><div class="num">2</div><div class="label">GDC Models</div></div>
+  </div>
+  <div class="countdown-section">
+    <div class="countdown-card mock" id="cd-mock1">
+      <div class="cd-label">🎯 Mock Exam</div>
+      <div class="cd-exam">Paper 1</div>
+      <div class="cd-date">25 Mar 2026 · 1:00 PM</div>
+      <div class="cd-days" id="days-mock1">–</div>
+      <div class="cd-sub">days to go</div>
+    </div>
+    <div class="countdown-card mock" id="cd-mock2">
+      <div class="cd-label">🎯 Mock Exam</div>
+      <div class="cd-exam">Paper 2</div>
+      <div class="cd-date">26 Mar 2026 · 9:00 AM</div>
+      <div class="cd-days" id="days-mock2">–</div>
+      <div class="cd-sub">days to go</div>
+    </div>
+    <div class="countdown-card ib" id="cd-ib1">
+      <div class="cd-label">🏛️ IB Official</div>
+      <div class="cd-exam">Paper 1</div>
+      <div class="cd-date">14 May 2026</div>
+      <div class="cd-days" id="days-ib1">–</div>
+      <div class="cd-sub">days to go</div>
+    </div>
+    <div class="countdown-card ib" id="cd-ib2">
+      <div class="cd-label">🏛️ IB Official</div>
+      <div class="cd-exam">Paper 2</div>
+      <div class="cd-date">15 May 2026</div>
+      <div class="cd-days" id="days-ib2">–</div>
+      <div class="cd-sub">days to go</div>
+    </div>
+  </div>
+</div>
+<div class="section-tabs">
+  <button class="tab-btn active" onclick="switchTab('syllabus')" id="tab-syllabus"><span>📋</span> Syllabus</button>
+  <button class="tab-btn" onclick="switchTab('formulas')" id="tab-formulas"><span>∑</span> Formulas</button>
+  <button class="tab-btn" onclick="switchTab('questions')" id="tab-questions"><span>✍️</span> Practice Questions</button>
+  <button class="tab-btn" onclick="switchTab('gdc')" id="tab-gdc"><span>🔢</span> GDC Skills</button>
+</div>
+<main>
+
+<!-- SYLLABUS -->
+<section id="syllabus" class="active">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(26,86,160,.12)">📋</div>
+    <div><h2>Syllabus Overview</h2><p>All 5 topics — hover any card to explore</p></div>
+  </div>
+  <div class="topic-grid">
+    <div class="topic-card t1">
+      <div class="topic-num">TOPIC 1</div>
+      <h3>Number &amp; Algebra</h3>
+      <p>Arithmetic &amp; geometric sequences, compound interest, annuities, loans, amortisation, exponents, logarithms, and scientific notation.</p>
+      <div class="topic-tags">
+        <span class="tag" style="background:rgba(59,130,246,.1);border-color:rgba(59,130,246,.3);color:#1a56a0">Sequences</span>
+        <span class="tag" style="background:rgba(59,130,246,.1);border-color:rgba(59,130,246,.3);color:#1a56a0">Finance</span>
+        <span class="tag" style="background:rgba(59,130,246,.1);border-color:rgba(59,130,246,.3);color:#1a56a0">Logarithms</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:65%;background:#1a56a0"></div></div>
+      <button class="expand-btn" onclick="toggleConcept(this)"><span>📖</span> Key Concepts <span class="exp-arrow">▾</span></button>
+      <div class="concept-body">
+        <div class="concept-section">
+          <div class="concept-label" style="color:#1a56a0">Sequences</div>
+          <ul class="concept-list">
+            <li><strong>Arithmetic sequences</strong> increase or decrease by a fixed number called the <strong>common difference (d)</strong>. Example: 3, 7, 11, 15… (d = 4)</li>
+            <li><strong>Geometric sequences</strong> multiply by a fixed number each time, called the <strong>common ratio (r)</strong>. Example: 2, 6, 18, 54… (r = 3)</li>
+            <li>The <strong>sum of a sequence</strong> (S_n) adds up all terms from u₁ to u_n — memorise both sum formulas.</li>
+          </ul>
+        </div>
+        <div class="concept-section">
+          <div class="concept-label" style="color:#1a56a0">Financial Mathematics</div>
+          <ul class="concept-list">
+            <li><strong>Compound interest</strong> means you earn interest on your interest — money grows exponentially over time.</li>
+            <li><strong>Annuities</strong> are regular equal payments (e.g. monthly savings into an account). Your GDC TVM solver handles all finance questions.</li>
+            <li><strong>Amortisation</strong> is the process of paying off a loan gradually — each payment covers interest first, then reduces the principal.</li>
+          </ul>
+        </div>
+        <div class="concept-section">
+          <div class="concept-label" style="color:#1a56a0">Logarithms & Exponents</div>
+          <ul class="concept-list">
+            <li><strong>Logarithms are the inverse of exponentials</strong>: if aˣ = b, then log_a(b) = x. Think of it as "what power do I raise a to, to get b?"</li>
+            <li>Key log laws: log(AB) = log A + log B &nbsp;|&nbsp; log(A/B) = log A − log B &nbsp;|&nbsp; log(Aⁿ) = n·log A</li>
+          </ul>
+        </div>
+        <div class="concept-watchout">⚠️ Common mistake: mixing up arithmetic vs geometric. Ask yourself — are terms being <em>added</em> to, or <em>multiplied</em> by, a fixed value?</div>
+      </div>
+    </div>
+    <div class="topic-card t2">
+      <div class="topic-num">TOPIC 2</div>
+      <h3>Functions</h3>
+      <p>Linear, quadratic, exponential, sinusoidal, and piecewise models. Interpreting graphs, inverse functions, and real-world modelling.</p>
+      <div class="topic-tags">
+        <span class="tag" style="background:rgba(45,125,210,.1);border-color:rgba(45,125,210,.3);color:#2d7dd2">Modelling</span>
+        <span class="tag" style="background:rgba(45,125,210,.1);border-color:rgba(45,125,210,.3);color:#2d7dd2">Graphs</span>
+        <span class="tag" style="background:rgba(45,125,210,.1);border-color:rgba(45,125,210,.3);color:#2d7dd2">Transformations</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:50%;background:#2d7dd2"></div></div>
+      <button class="expand-btn" onclick="toggleConcept(this)"><span>📖</span> Key Concepts <span class="exp-arrow">▾</span></button>
+      <div class="concept-body">
+        <div class="concept-section">
+          <div class="concept-label" style="color:var(--accent)">Types of Functions</div>
+          <ul class="concept-list">
+            <li><strong>Linear f(x) = mx + c</strong> — straight line. m = gradient, c = y-intercept. Used for constant rate of change.</li>
+            <li><strong>Quadratic f(x) = ax² + bx + c</strong> — parabola. Has a vertex (turning point), axis of symmetry, and at most 2 x-intercepts.</li>
+            <li><strong>Exponential f(x) = a·bˣ + c</strong> — models growth (b > 1) or decay (0 < b < 1). Has a horizontal asymptote at y = c.</li>
+            <li><strong>Sinusoidal f(x) = a·sin(b(x−c)) + d</strong> — models repeating/periodic patterns like tides and temperature cycles.</li>
+          </ul>
+        </div>
+        <div class="concept-section">
+          <div class="concept-label" style="color:var(--accent)">Key Graph Features</div>
+          <ul class="concept-list">
+            <li><strong>Domain</strong> = all possible x-values (inputs). <strong>Range</strong> = all possible y-values (outputs).</li>
+            <li><strong>x-intercepts / zeros</strong>: where the graph crosses the x-axis (y = 0). <strong>y-intercept</strong>: where it crosses y-axis (x = 0).</li>
+            <li><strong>Asymptotes</strong> are invisible lines the graph approaches but never touches — important for exponential models.</li>
+          </ul>
+        </div>
+        <div class="concept-section">
+          <div class="concept-label" style="color:var(--accent)">Transformations</div>
+          <ul class="concept-list">
+            <li>f(x) + k → <strong>vertical shift</strong> up by k. f(x − h) → <strong>horizontal shift</strong> right by h.</li>
+            <li>a·f(x) → <strong>vertical stretch</strong>. f(bx) → <strong>horizontal compression</strong>.</li>
+          </ul>
+        </div>
+        <div class="concept-tip" style="background:rgba(0,229,160,.06);border-left:3px solid var(--accent);color:#3dbf8c">💡 In AI SL the focus is always on <em>choosing the right model</em> for a context and <em>interpreting</em> the parameters — not just calculating them.</div>
+      </div>
+    </div>
+    <div class="topic-card t3">
+      <div class="topic-num">TOPIC 3</div>
+      <h3>Geometry &amp; Trigonometry</h3>
+      <p>Voronoi diagrams, right-angle and non-right trig, sine/cosine rule, area formula, volume and surface area of 3D shapes.</p>
+      <div class="topic-tags">
+        <span class="tag" style="background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.3);color:var(--accent3)">Trig</span>
+        <span class="tag" style="background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.3);color:var(--accent3)">Voronoi</span>
+        <span class="tag" style="background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.3);color:var(--accent3)">3D Shapes</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:40%;background:var(--accent3)"></div></div>
+      <button class="expand-btn" onclick="toggleConcept(this)"><span>📖</span> Key Concepts <span class="exp-arrow">▾</span></button>
+      <div class="concept-body">
+        <div class="concept-section">
+          <div class="concept-label" style="color:var(--accent3)">Right-Angle Trigonometry</div>
+          <ul class="concept-list">
+            <li><strong>SOH-CAH-TOA</strong>: sin θ = Opposite/Hypotenuse, cos θ = Adjacent/Hypotenuse, tan θ = Opposite/Adjacent.</li>
+            <li>Use when you have a <strong>right angle + one side + one angle</strong> (or two sides to find an angle).</li>
+            <li><strong>Pythagoras</strong> a² + b² = c² finds the missing side when you have two sides of a right triangle.</li>
+          </ul>
+        </div>
+        <div class="concept-section">
+          <div class="concept-label" style="color:var(--accent3)">Non-Right Trigonometry</div>
+          <ul class="concept-list">
+            <li><strong>Sine Rule</strong> — use when you have a matching angle-side pair (AAS or ASA situations).</li>
+            <li><strong>Cosine Rule</strong> — use when you have three sides (SSS) or two sides + included angle (SAS).</li>
+            <li><strong>Area = ½ab·sinC</strong> — when you know two sides and the angle between them.</li>
+          </ul>
+        </div>
+        <div class="concept-section">
+          <div class="concept-label" style="color:var(--accent3)">3D Shapes & Voronoi</div>
+          <ul class="concept-list">
+            <li>You need to know volume and surface area formulas for <strong>prisms, cylinders, cones, spheres, and pyramids</strong> — most are in the formula booklet.</li>
+            <li><strong>Voronoi diagrams</strong> divide a plane into regions based on which point (site) is nearest. The boundaries are <strong>perpendicular bisectors</strong> of the lines joining sites.</li>
+            <li>Adding a new site to a Voronoi diagram requires finding the new perpendicular bisectors and adjusting the regions.</li>
+          </ul>
+        </div>
+        <div class="concept-watchout">⚠️ Always check your GDC is in <em>DEGREE mode</em> for all trig problems unless told otherwise. Radian answers will be completely wrong.</div>
+      </div>
+    </div>
+    <div class="topic-card t4">
+      <div class="topic-num">TOPIC 4</div>
+      <h3>Statistics &amp; Probability</h3>
+      <p>Data collection, measures of central tendency &amp; spread, correlation, regression, normal distribution, binomial distribution, hypothesis testing.</p>
+      <div class="topic-tags">
+        <span class="tag" style="background:rgba(236,72,153,.1);border-color:rgba(236,72,153,.3);color:var(--accent4)">Normal Dist.</span>
+        <span class="tag" style="background:rgba(236,72,153,.1);border-color:rgba(236,72,153,.3);color:var(--accent4)">Regression</span>
+        <span class="tag" style="background:rgba(236,72,153,.1);border-color:rgba(236,72,153,.3);color:var(--accent4)">Hypothesis</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:30%;background:var(--accent4)"></div></div>
+      <button class="expand-btn" onclick="toggleConcept(this)"><span>📖</span> Key Concepts <span class="exp-arrow">▾</span></button>
+      <div class="concept-body">
+        <div class="concept-section">
+          <div class="concept-label" style="color:var(--accent4)">Descriptive Statistics</div>
+          <ul class="concept-list">
+            <li><strong>Mean</strong> (average), <strong>median</strong> (middle value), <strong>mode</strong> (most frequent) are measures of <em>central tendency</em>.</li>
+            <li><strong>Standard deviation (σ)</strong> measures how spread out data is from the mean. <strong>IQR</strong> = Q3 − Q1, the range of the middle 50%.</li>
+            <li><strong>Outliers</strong> are values more than 1.5 × IQR beyond Q1 or Q3 — always check for them on box plots.</li>
+          </ul>
+        </div>
+        <div class="concept-section">
+          <div class="concept-label" style="color:var(--accent4)">Correlation & Regression</div>
+          <ul class="concept-list">
+            <li><strong>Pearson's r</strong> measures the strength and direction of a linear relationship. Calculated by GDC.</li>
+            <li>The <strong>regression line y = ax + b</strong> is the line of best fit. Only use it to predict values <em>within</em> the data range (interpolation, not extrapolation).</li>
+            <li>Correlation does <strong>not</strong> imply causation — two things can be correlated without one causing the other.</li>
+          </ul>
+        </div>
+        <div class="concept-section">
+          <div class="concept-label" style="color:var(--accent4)">Probability Distributions</div>
+          <ul class="concept-list">
+            <li><strong>Normal distribution X ~ N(μ, σ²)</strong> — bell-shaped, symmetric about the mean. Used for continuous data (heights, weights, test scores).</li>
+            <li><strong>Binomial distribution X ~ B(n, p)</strong> — counts how many successes in n independent trials, each with probability p.</li>
+            <li>For binomial: P(X = k) uses the formula. Your GDC calculates binomPDF (exact) and binomCDF (cumulative).</li>
+          </ul>
+        </div>
+        <div class="concept-section">
+          <div class="concept-label" style="color:var(--accent4)">Hypothesis Testing</div>
+          <ul class="concept-list">
+            <li>The <strong>null hypothesis H₀</strong> states "no effect / no difference." The <strong>alternative H₁</strong> states there is a difference.</li>
+            <li>The <strong>p-value</strong> is the probability of getting results at least as extreme as observed, assuming H₀ is true.</li>
+            <li>If p-value &lt; significance level (usually 0.05), <strong>reject H₀</strong>. If p-value ≥ 0.05, <strong>do not reject H₀</strong>.</li>
+          </ul>
+        </div>
+        <div class="concept-watchout">⚠️ Never say "accept H₀" — the correct phrase is "there is insufficient evidence to reject H₀."</div>
+      </div>
+    </div>
+    <div class="topic-card t5">
+      <div class="topic-num">TOPIC 5</div>
+      <h3>Calculus</h3>
+      <p>Differentiation, integration, optimisation, area under curves, kinematics, and trapezoidal rule — all in real-world contexts.</p>
+      <div class="topic-tags">
+        <span class="tag" style="background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.3);color:#7c3aed">Differentiation</span>
+        <span class="tag" style="background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.3);color:#7c3aed">Integration</span>
+        <span class="tag" style="background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.3);color:#7c3aed">Optimisation</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:20%;background:#a78bfa"></div></div>
+      <button class="expand-btn" onclick="toggleConcept(this)"><span>📖</span> Key Concepts <span class="exp-arrow">▾</span></button>
+      <div class="concept-body">
+        <div class="concept-section">
+          <div class="concept-label" style="color:#7c3aed">Differentiation</div>
+          <ul class="concept-list">
+            <li><strong>The derivative f′(x)</strong> gives the <em>gradient (slope)</em> of the curve at any point x. It measures the <em>rate of change</em>.</li>
+            <li><strong>Power rule</strong>: differentiate xⁿ → nxⁿ⁻¹. Apply term by term for polynomials.</li>
+            <li>Setting f′(x) = 0 finds <strong>turning points</strong> (maxima or minima). Use f″(x) to determine which: f″ > 0 → min, f″ < 0 → max.</li>
+            <li>In context: if s(t) is position, then s′(t) = velocity and s″(t) = acceleration.</li>
+          </ul>
+        </div>
+        <div class="concept-section">
+          <div class="concept-label" style="color:#7c3aed">Integration</div>
+          <ul class="concept-list">
+            <li><strong>Integration is the reverse of differentiation.</strong> The integral of xⁿ = xⁿ⁺¹/(n+1) + c.</li>
+            <li>A <strong>definite integral ∫ₐᵇ f(x) dx</strong> calculates the <em>signed area</em> between the curve and the x-axis between x = a and x = b.</li>
+            <li>For <strong>area between two curves</strong>: integrate (top function − bottom function) over the interval.</li>
+          </ul>
+        </div>
+        <div class="concept-section">
+          <div class="concept-label" style="color:#7c3aed">Optimisation & Trapezoidal Rule</div>
+          <ul class="concept-list">
+            <li><strong>Optimisation</strong>: write an expression for what you want to maximise/minimise, differentiate, set = 0, solve, and verify it's a max/min.</li>
+            <li>The <strong>trapezoidal rule</strong> approximates area under a curve by dividing it into trapezoids: A ≈ h/2 × (y₀ + 2y₁ + 2y₂ + … + yₙ), where h = strip width.</li>
+          </ul>
+        </div>
+        <div class="concept-tip" style="background:rgba(124,58,237,.07);border-left:3px solid #7c3aed;color:#5b21b6">💡 Calculus in AI SL is always applied to real-world scenarios — profit, volume, speed. Always interpret your answer in context with units.</div>
+        <div class="concept-watchout">⚠️ Don't forget +c for indefinite integrals. For definite integrals, area <em>below</em> the x-axis gives a negative value — if you need physical area, take the absolute value.</div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:1.5rem;padding:1rem 1.2rem;background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;font-size:.82rem;color:#1e40af">
+    💡 <strong style="color:var(--text)">Exam tip:</strong> Topics 4 (Statistics) and 3 (Geometry) carry the most marks in Paper 2. Prioritise your GDC skills here.
+  </div>
+</section>
+
+<!-- FORMULAS -->
+<section id="formulas">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(26,86,160,.1)">∑</div>
+    <div><h2>Key Formulas</h2><p>All formulas from the official IB booklet — rendered in LaTeX with plain-English explanations</p></div>
+  </div>
+  <div class="formula-filters" id="formula-filters">
+    <button class="filter-btn on" onclick="filterFormulas('all',this)">All</button>
+    <button class="filter-btn" onclick="filterFormulas('algebra',this)">Algebra</button>
+    <button class="filter-btn" onclick="filterFormulas('functions',this)">Functions</button>
+    <button class="filter-btn" onclick="filterFormulas('geometry',this)">Geometry</button>
+    <button class="filter-btn" onclick="filterFormulas('stats',this)">Statistics</button>
+    <button class="filter-btn" onclick="filterFormulas('calculus',this)">Calculus</button>
+  </div>
+  <div class="formula-grid" id="formula-grid">
+
+    <!-- ═══ TOPIC 1: NUMBER & ALGEBRA ═══ -->
+
+    <div class="formula-card" data-topic="algebra">
+      <div class="fname">1.2 · Arithmetic Sequence — nth Term</div>
+      <div class="formula-display">\(u_n = u_1 + (n-1)d\)</div>
+      <div class="fexplain">Finds the <strong>nth term</strong> of an arithmetic sequence, where each term increases or decreases by the fixed common difference \(d\).</div>
+      <div class="fwhere">\(u_1\) = first term · \(d\) = common difference · \(n\) = term number</div>
+      <div class="formula-tip">⚡ Find \(d = u_2 - u_1\). To find which term equals a value, set \(u_n =\) value and solve for \(n\).</div>
+    </div>
+
+    <div class="formula-card" data-topic="algebra">
+      <div class="fname">1.2 · Arithmetic Sequence — Sum</div>
+      <div class="formula-display">\(S_n = \dfrac{n}{2}\bigl(2u_1 + (n-1)d\bigr) = \dfrac{n}{2}(u_1 + u_n)\)</div>
+      <div class="fexplain">Adds up the first \(n\) terms. The second form is handy when you already know the last term \(u_n\) — it's just \(n\) × average of first and last.</div>
+      <div class="fwhere">\(u_1\) = first term · \(u_n\) = last term · \(d\) = common difference</div>
+      <div class="formula-tip">⚡ Both forms give the same answer — use whichever has fewer unknowns to substitute.</div>
+    </div>
+
+    <div class="formula-card" data-topic="algebra">
+      <div class="fname">1.3 · Geometric Sequence — nth Term</div>
+      <div class="formula-display">\(u_n = u_1 \cdot r^{\,n-1}\)</div>
+      <div class="fexplain">Finds the <strong>nth term</strong> of a geometric sequence. Each term is multiplied by the common ratio \(r\).</div>
+      <div class="fwhere">\(u_1\) = first term · \(r = u_2/u_1\) = common ratio</div>
+      <div class="formula-tip">⚡ \(r>1\) = growth · \(0 &lt; r &lt; 1\) = decay · \(r &lt; 0\) = alternating signs.</div>
+    </div>
+
+    <div class="formula-card" data-topic="algebra">
+      <div class="fname">1.3 · Geometric Sequence — Sum</div>
+      <div class="formula-display">\(S_n = \dfrac{u_1(r^n-1)}{r-1} = \dfrac{u_1(1-r^n)}{1-r}, \quad r \neq 1\)</div>
+      <div class="fexplain">Adds up a finite geometric sequence. Both forms are equivalent — use the one that avoids a negative denominator.</div>
+      <div class="fwhere">If \(r = 1\), all terms are equal so \(S_n = n \cdot u_1\)</div>
+      <div class="formula-tip">⚡ This counts a <em>finite</em> number of terms only — don't confuse with an infinite series.</div>
+    </div>
+
+    <div class="formula-card" data-topic="algebra">
+      <div class="fname">1.4 · Compound Interest</div>
+      <div class="formula-display">\(FV = PV \times \left(1 + \dfrac{r}{100k}\right)^{kn}\)</div>
+      <div class="fexplain">Calculates the <strong>future value</strong> of an investment. Interest is added to the principal at each period — you earn interest on interest, giving exponential growth.</div>
+      <div class="fwhere">\(PV\) = present value · \(n\) = years · \(k\) = periods/year · \(r\%\) = nominal annual rate</div>
+      <div class="formula-tip">⚡ Monthly: \(k=12\), quarterly: \(k=4\), annually: \(k=1\). Use GDC TVM solver for loans and annuities.</div>
+    </div>
+
+    <div class="formula-card" data-topic="algebra">
+      <div class="fname">1.5 · Exponents & Logarithms</div>
+      <div class="formula-display">\(\log_a x = b \iff a^b = x \quad (a>0,\; a\neq1,\; x>0)\)</div>
+      <div class="fexplain">A log answers: <em>"what power do I raise \(a\) to in order to get \(x\)?"</em> Logs and exponents are inverse operations. E.g. \(\log_2 8 = 3\) because \(2^3=8\).</div>
+      <div class="fwhere">\(\log_{10} x = \log x\) (common log) · \(\log_e x = \ln x\) (natural log)</div>
+      <div class="formula-tip">⚡ Key laws: \(\log(AB)=\log A+\log B\) · \(\log\tfrac{A}{B}=\log A-\log B\) · \(\log A^n = n\log A\)</div>
+    </div>
+
+    <div class="formula-card" data-topic="algebra">
+      <div class="fname">1.6 · Percentage Error</div>
+      <div class="formula-display">\(\varepsilon = \left|\dfrac{v_E - v_A}{v_E}\right| \times 100\%\)</div>
+      <div class="fexplain">Measures how far off an approximation is as a <strong>percentage of the true (exact) value</strong>. The absolute value ensures the result is always non-negative.</div>
+      <div class="fwhere">\(v_E\) = exact value · \(v_A\) = approximate value</div>
+      <div class="formula-tip">⚡ Always divide by the <em>exact</em> value, not the approximate one. Smaller % = better approximation.</div>
+    </div>
+
+    <!-- ═══ TOPIC 2: FUNCTIONS ═══ -->
+
+    <div class="formula-card" data-topic="functions">
+      <div class="fname">2.1 · Equations of a Straight Line</div>
+      <div class="formula-display">\(y = mx + c \qquad ax+by+d=0 \qquad y-y_1=m(x-x_1)\)</div>
+      <div class="fexplain">Three equivalent forms. <strong>Slope-intercept</strong> is most readable; <strong>point-slope</strong> is quickest when you have a point and gradient; <strong>general form</strong> appears in some exam questions.</div>
+      <div class="fwhere">\(m\) = gradient · \(c\) = y-intercept · \((x_1,y_1)\) = a known point on the line</div>
+      <div class="formula-tip">⚡ Parallel lines share the same \(m\). Perpendicular: \(m_1 \times m_2 = -1\).</div>
+    </div>
+
+    <div class="formula-card" data-topic="functions">
+      <div class="fname">2.1 · Gradient Formula</div>
+      <div class="formula-display">\(m = \dfrac{y_2 - y_1}{x_2 - x_1}\)</div>
+      <div class="fexplain">"Rise over run" — how much \(y\) changes per unit increase in \(x\). Positive = rises left-to-right; negative = falls left-to-right.</div>
+      <div class="fwhere">\((x_1,y_1)\) and \((x_2,y_2)\) = any two distinct points on the line</div>
+      <div class="formula-tip">⚡ Order doesn't matter as long as you're consistent — use the same point's coordinates on both top and bottom.</div>
+    </div>
+
+    <div class="formula-card" data-topic="functions">
+      <div class="fname">2.5 · Axis of Symmetry (Quadratic)</div>
+      <div class="formula-display">\(f(x)=ax^2+bx+c \implies x = -\dfrac{b}{2a}\)</div>
+      <div class="fexplain">A parabola is symmetric about its <strong>axis of symmetry</strong> through the vertex. Substitute this \(x\) back into \(f(x)\) to find the max or min value.</div>
+      <div class="fwhere">\(a,b,c\) = quadratic coefficients · \(a \neq 0\)</div>
+      <div class="formula-tip">⚡ \(a>0\) → opens upward (min vertex). \(a&lt;0\) → opens downward (max vertex).</div>
+    </div>
+
+    <div class="formula-card" data-topic="functions">
+      <div class="fname">Exponential Model · Functions</div>
+      <div class="formula-display">\(f(t) = a \cdot b^{\,t} + c\)</div>
+      <div class="fexplain">Models <strong>exponential growth or decay</strong>. The horizontal asymptote \(y=c\) is a value the function approaches but never crosses.</div>
+      <div class="fwhere">\(a\) = scale factor · \(b>1\) growth / \(0&lt;b&lt;1\) decay · \(c\) = asymptote</div>
+      <div class="formula-tip">⚡ Population growth, radioactive decay, Newton's cooling — all exponential. Find \(b\) from two data points.</div>
+    </div>
+
+    <div class="formula-card" data-topic="functions">
+      <div class="fname">Sinusoidal Model · Functions</div>
+      <div class="formula-display">\(f(x) = a\sin\!\bigl(b(x-c)\bigr) + d\)</div>
+      <div class="fexplain">Models <strong>periodic / wave data</strong> like tides, temperature, and Ferris wheels. Every parameter has a clear geometric meaning readable from the graph.</div>
+      <div class="fwhere">\(a\)= amplitude · period \(=2\pi/b\) · \(c\)= horizontal shift · \(d\)= midline</div>
+      <div class="formula-tip">⚡ Amplitude \(=\tfrac{\max-\min}{2}\) · Midline \(=\tfrac{\max+\min}{2}\). Read these from context first!</div>
+    </div>
+
+    <!-- ═══ TOPIC 3: GEOMETRY & TRIG ═══ -->
+
+    <div class="formula-card" data-topic="geometry">
+      <div class="fname">Prior Learning · Basic Areas</div>
+      <div class="formula-display">\(A_\triangle = \tfrac{1}{2}bh \quad A_{\parallel} = bh \quad A_\text{trap} = \tfrac{1}{2}(a+b)h \quad A_\circ = \pi r^2\)</div>
+      <div class="fexplain">Core area formulas. The trapezoid formula averages the two parallel sides then multiplies by height. Always use the <strong>perpendicular</strong> height.</div>
+      <div class="fwhere">\(b\)= base · \(h\)= perpendicular height · \(a,b\)= parallel sides · \(r\)= radius</div>
+    </div>
+
+    <div class="formula-card" data-topic="geometry">
+      <div class="fname">Prior Learning · Volumes & Circumference</div>
+      <div class="formula-display">\(V_\text{cuboid}=lwh \quad V_\text{cyl}=\pi r^2 h \quad V_\text{prism}=Ah \quad C=2\pi r\)</div>
+      <div class="fexplain">For any <strong>prism</strong>, volume = cross-sectional area × height. The cylinder is just a circular prism: \(A = \pi r^2\).</div>
+      <div class="fwhere">\(A\)= cross-sectional area · \(l,w,h\)= length, width, height · \(r\)= radius</div>
+    </div>
+
+    <div class="formula-card" data-topic="geometry">
+      <div class="fname">Prior Learning · Distance & Midpoint (2D)</div>
+      <div class="formula-display">\(d=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2} \qquad M=\!\left(\dfrac{x_1+x_2}{2},\,\dfrac{y_1+y_2}{2}\right)\)</div>
+      <div class="fexplain">Distance is <strong>Pythagoras in disguise</strong>. Midpoint is simply the average of both coordinates — the point exactly halfway between.</div>
+      <div class="fwhere">\((x_1,y_1)\) and \((x_2,y_2)\)= two points in the plane</div>
+    </div>
+
+    <div class="formula-card" data-topic="geometry">
+      <div class="fname">3.1 · Distance & Midpoint (3D)</div>
+      <div class="formula-display">\(d=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}\)</div>
+      <div class="fexplain">Extends Pythagoras to three dimensions by adding the \(z\) component under the square root. Midpoint is still the coordinate-wise average: \(\left(\frac{x_1+x_2}{2}, \frac{y_1+y_2}{2}, \frac{z_1+z_2}{2}\right)\).</div>
+      <div class="fwhere">\((x_1,y_1,z_1)\) and \((x_2,y_2,z_2)\)= two points in 3D space</div>
+    </div>
+
+    <div class="formula-card" data-topic="geometry">
+      <div class="fname">3.1 · Pyramid, Cone & Sphere Volumes</div>
+      <div class="formula-display">\(V_\text{pyr}=\tfrac{1}{3}Ah \quad V_\text{cone}=\tfrac{1}{3}\pi r^2 h \quad V_\text{sphere}=\tfrac{4}{3}\pi r^3\)</div>
+      <div class="fexplain">These solids all include the factor \(\tfrac{1}{3}\) compared to their prism equivalents. The sphere formula is one of the most important to memorise.</div>
+      <div class="fwhere">\(A\)= base area · \(h\)= perpendicular height · \(r\)= radius</div>
+      <div class="formula-tip">⚡ Pyramid volume = \(\tfrac{1}{3}\) × (base area × height) — works for any base shape.</div>
+    </div>
+
+    <div class="formula-card" data-topic="geometry">
+      <div class="fname">3.1 · Curved Surface Areas</div>
+      <div class="formula-display">\(A_\text{cone}=\pi rl \quad A_\text{cyl (curved)}=2\pi rh \quad A_\text{sphere}=4\pi r^2\)</div>
+      <div class="fexplain">These are <strong>curved surfaces only</strong> — add \(\pi r^2\) base(s) for closed solids. Note the sphere's surface area is exactly 4× the area of a great circle.</div>
+      <div class="fwhere">\(r\)= radius · \(l\)= slant height (cone) · \(h\)= height (cylinder)</div>
+      <div class="formula-tip">⚡ Slant height \(l \neq\) vertical height \(h\). Use Pythagoras: \(l = \sqrt{r^2+h^2}\).</div>
+    </div>
+
+    <div class="formula-card" data-topic="geometry">
+      <div class="fname">3.2 · Sine Rule</div>
+      <div class="formula-display">\(\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C}\)</div>
+      <div class="fexplain">Use when you have an <strong>angle–opposite side pair</strong> and need another side or angle. Works for <em>any</em> triangle — not just right-angled.</div>
+      <div class="fwhere">\(a,b,c\)= sides · \(A,B,C\)= angles opposite those sides</div>
+      <div class="formula-tip">⚡ Ambiguous case (SSA): two triangles may exist. Always check if a second solution is valid.</div>
+    </div>
+
+    <div class="formula-card" data-topic="geometry">
+      <div class="fname">3.2 · Cosine Rule</div>
+      <div class="formula-display">\(c^2 = a^2+b^2-2ab\cos C \qquad \cos C = \dfrac{a^2+b^2-c^2}{2ab}\)</div>
+      <div class="fexplain">Use with <strong>3 sides</strong> (find angle) or <strong>2 sides + included angle</strong> (find 3rd side). It's a generalisation of Pythagoras — when \(C=90°\) the last term vanishes.</div>
+      <div class="fwhere">\(C\)= angle between sides \(a\) and \(b\) · \(c\)= side opposite \(C\)</div>
+      <div class="formula-tip">⚡ Make sure GDC is in DEGREE mode. Draw a labelled diagram first.</div>
+    </div>
+
+    <div class="formula-card" data-topic="geometry">
+      <div class="fname">3.2 · Area of Triangle (Non-right)</div>
+      <div class="formula-display">\(A = \dfrac{1}{2}\,ab\sin C\)</div>
+      <div class="fexplain">Area of <em>any</em> triangle when you know <strong>two sides and the included angle</strong>. When \(C=90°\), \(\sin 90°=1\) and it reduces to the familiar \(\tfrac{1}{2}bh\).</div>
+      <div class="fwhere">\(a,b\)= two known sides · \(C\)= the angle <em>between</em> them (included angle)</div>
+    </div>
+
+    <div class="formula-card" data-topic="geometry">
+      <div class="fname">3.4 · Arc Length & Sector Area</div>
+      <div class="formula-display">\(l = \dfrac{\theta}{360} \times 2\pi r \qquad A = \dfrac{\theta}{360} \times \pi r^2\)</div>
+      <div class="fexplain">A sector is a "pizza slice". The fraction \(\theta/360\) scales the full circumference or area to just the portion you need. These use <strong>degrees</strong> as in the IB booklet.</div>
+      <div class="fwhere">\(\theta\)= central angle in degrees · \(r\)= radius · \(l\)= arc length</div>
+      <div class="formula-tip">⚡ Check: \(\theta=360°\) gives \(l=2\pi r\) and \(A=\pi r^2\). ✓</div>
+    </div>
+
+    <!-- ═══ TOPIC 4: STATISTICS & PROBABILITY ═══ -->
+
+    <div class="formula-card" data-topic="stats">
+      <div class="fname">4.2 · Interquartile Range</div>
+      <div class="formula-display">\(\text{IQR} = Q_3 - Q_1\)</div>
+      <div class="fexplain">Measures the <strong>spread of the middle 50%</strong> of data. Resistant to outliers because it ignores the top and bottom quarters. Larger IQR = more spread.</div>
+      <div class="fwhere">\(Q_1\)= lower quartile (25th percentile) · \(Q_3\)= upper quartile (75th percentile)</div>
+      <div class="formula-tip">⚡ Outlier rule: value is an outlier if below \(Q_1 - 1.5\times\text{IQR}\) or above \(Q_3 + 1.5\times\text{IQR}\).</div>
+    </div>
+
+    <div class="formula-card" data-topic="stats">
+      <div class="fname">4.3 · Mean of Frequency Data</div>
+      <div class="formula-display">\(\bar{x} = \dfrac{\displaystyle\sum_{i=1}^{k} f_i x_i}{n}, \qquad n = \sum_{i=1}^{k} f_i\)</div>
+      <div class="fexplain">Weighted mean from a frequency table. Each value \(x_i\) is multiplied by how often it appears \(f_i\), summed, then divided by total count \(n\).</div>
+      <div class="fwhere">\(x_i\)= data value · \(f_i\)= its frequency · \(n\)= total data count</div>
+      <div class="formula-tip">⚡ For grouped data, use the class midpoint as \(x_i\). GDC handles this in the statistics list.</div>
+    </div>
+
+    <div class="formula-card" data-topic="stats">
+      <div class="fname">4.5 · Probability & Complement</div>
+      <div class="formula-display">\(P(A) = \dfrac{n(A)}{n(U)} \qquad P(A) + P(A') = 1\)</div>
+      <div class="fexplain"><strong>Classical probability</strong>: favourable outcomes ÷ total equally-likely outcomes. The complement rule says the probability of something <em>not</em> happening = 1 − probability it does.</div>
+      <div class="fwhere">\(n(A)\)= outcomes in event \(A\) · \(n(U)\)= total outcomes · \(A'\)= complement of \(A\)</div>
+      <div class="formula-tip">⚡ All probabilities across a complete set of outcomes must sum to 1.</div>
+    </div>
+
+    <div class="formula-card" data-topic="stats">
+      <div class="fname">4.6 · Combined Events (Union Rule)</div>
+      <div class="formula-display">\(P(A \cup B) = P(A) + P(B) - P(A \cap B)\)</div>
+      <div class="fexplain">Adds both event probabilities then subtracts the overlap to avoid double-counting. If \(A\) and \(B\) are <strong>mutually exclusive</strong> (no overlap), then \(P(A \cap B)=0\) so \(P(A \cup B)=P(A)+P(B)\).</div>
+      <div class="fwhere">\(A \cup B\)= A or B (or both) · \(A \cap B\)= A and B simultaneously</div>
+      <div class="formula-tip">⚡ Use a Venn diagram or two-way table to organise intersections clearly.</div>
+    </div>
+
+    <div class="formula-card" data-topic="stats">
+      <div class="fname">4.6 · Conditional Probability & Independence</div>
+      <div class="formula-display">\(P(A|B) = \dfrac{P(A \cap B)}{P(B)} \qquad P(A \cap B)=P(A)\,P(B) \text{ if independent}\)</div>
+      <div class="fexplain"><strong>Conditional</strong> restricts the sample space to cases where \(B\) has already occurred. <strong>Independent</strong> means knowing \(B\) doesn't change the probability of \(A\).</div>
+      <div class="fwhere">\(P(A|B)\)= probability of A given B has occurred</div>
+      <div class="formula-tip">⚡ Tree diagrams are ideal for conditional probability. Multiply along branches, add between branches.</div>
+    </div>
+
+    <div class="formula-card" data-topic="stats">
+      <div class="fname">4.7 · Expected Value (Discrete)</div>
+      <div class="formula-display">\(E(X) = \displaystyle\sum_{i=1}^{k} x_i \cdot P(X = x_i)\)</div>
+      <div class="fexplain">The <strong>long-run average</strong> if the experiment were repeated many times. It's a weighted average of all outcomes by their probabilities. It may not be a value \(X\) can actually take.</div>
+      <div class="fwhere">\(x_i\)= possible value · \(P(X=x_i)\)= its probability</div>
+      <div class="formula-tip">⚡ Always verify: all probabilities in the distribution must sum to exactly 1.</div>
+    </div>
+
+    <div class="formula-card" data-topic="stats">
+      <div class="fname">4.8 · Binomial Distribution</div>
+      <div class="formula-display">\(X \sim B(n,\,p) \qquad E(X)=np \qquad \text{Var}(X)=np(1-p)\)</div>
+      <div class="fexplain">Counts <strong>successes in \(n\) independent trials</strong>, each with the same probability \(p\). The mean \(np\) is the expected number of successes.</div>
+      <div class="fwhere">\(n\)= number of trials · \(p\)= probability of success per trial</div>
+      <div class="formula-tip">⚡ GDC: binomPDF\((n,p,k)\) for \(P(X=k)\). binomCDF\((n,p,k)\) for \(P(X \leq k)\). Check: fixed \(n\), independent trials, constant \(p\).</div>
+    </div>
+
+    <div class="formula-card" data-topic="stats">
+      <div class="fname">Normal Distribution · Statistics</div>
+      <div class="formula-display">\(X \sim N(\mu,\;\sigma^2)\)</div>
+      <div class="fexplain">Bell-curve model for continuous data. \(\mu\) is the mean (centre of symmetry), \(\sigma\) is the standard deviation (spread). About 68% of data falls within 1\(\sigma\), 95% within 2\(\sigma\).</div>
+      <div class="fwhere">\(\mu\)= mean · \(\sigma^2\)= variance · \(\sigma\)= standard deviation</div>
+      <div class="formula-tip">⚡ GDC: normalcdf\((a,b,\mu,\sigma)\) for probabilities. invNorm\((p,\mu,\sigma)\) to find x-values. Use 9E999 for \(+\infty\).</div>
+    </div>
+
+    <!-- ═══ TOPIC 5: CALCULUS ═══ -->
+
+    <div class="formula-card" data-topic="calculus">
+      <div class="fname">5.3 · Power Rule — Differentiation</div>
+      <div class="formula-display">\(f(x) = x^n \implies f'(x) = nx^{n-1}\)</div>
+      <div class="fexplain"><strong>Bring the exponent down</strong> as a coefficient, then <strong>reduce the exponent by 1</strong>. The derivative gives the gradient (slope) of the curve at any point — the instantaneous rate of change.</div>
+      <div class="fwhere">Works for any real \(n\), including fractions and negatives. Apply term-by-term for polynomials.</div>
+      <div class="formula-tip">⚡ \(f'(x)=0\) → turning point · \(f''(x)>0\) → min · \(f''(x)&lt;0\) → max. Kinematics: position → velocity → acceleration.</div>
+    </div>
+
+    <div class="formula-card" data-topic="calculus">
+      <div class="fname">5.5 · Power Rule — Integration</div>
+      <div class="formula-display">\(\displaystyle\int x^n\,dx = \dfrac{x^{n+1}}{n+1} + C, \quad n \neq -1\)</div>
+      <div class="fexplain">Integration is the <strong>reverse of differentiation</strong>: increase exponent by 1, divide by the new exponent. The constant \(+C\) accounts for all functions sharing the same derivative (e.g. \(x^2\) and \(x^2+5\) both differentiate to \(2x\)).</div>
+      <div class="fwhere">\(C\)= constant of integration (required for all indefinite integrals)</div>
+      <div class="formula-tip">⚡ Never forget \(+C\) for indefinite integrals. For definite integrals \(C\) cancels out.</div>
+    </div>
+
+    <div class="formula-card" data-topic="calculus">
+      <div class="fname">5.5 · Area Under a Curve</div>
+      <div class="formula-display">\(A = \displaystyle\int_a^b y\;dx, \quad f(x) \geq 0\)</div>
+      <div class="fexplain">A <strong>definite integral</strong> calculates signed area between \(y=f(x)\) and the \(x\)-axis from \(x=a\) to \(x=b\). Area <em>below</em> the axis is negative — take the absolute value for physical area.</div>
+      <div class="fwhere">\(a,b\)= limits of integration · \(f(x)\geq0\) for area to be directly positive</div>
+      <div class="formula-tip">⚡ Area between two curves: \(\int_a^b[f(x)-g(x)]\,dx\) where \(f\) is the top curve. GDC computes definite integrals directly.</div>
+    </div>
+
+    <div class="formula-card" data-topic="calculus">
+      <div class="fname">5.8 · Trapezoidal Rule</div>
+      <div class="formula-display">\(\displaystyle\int_a^b y\,dx \approx \frac{h}{2}\bigl(y_0 + 2y_1 + 2y_2 + \cdots + 2y_{n-1} + y_n\bigr)\)</div>
+      <div class="fexplain">Approximates area under a curve by dividing it into \(n\) vertical <strong>trapezoids</strong> of equal width \(h=(b-a)/n\). First and last \(y\)-values get coefficient 1; all interior values get 2.</div>
+      <div class="fwhere">\(h=(b-a)/n\)= strip width · \(y_0,\ldots,y_n\)= function values at each boundary</div>
+      <div class="formula-tip">⚡ Memory trick: coefficients are "1, 2, 2, …, 2, 1". More strips → better approximation.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- QUESTIONS -->
+<section id="questions">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(245,158,11,.1)">✍️</div>
+    <div><h2>IB-Style Practice Questions</h2><p>Reveal solutions step by step. Mirrors real IB exam style.</p></div>
+  </div>
+  <div class="q-filters">
+    <button class="filter-btn on" onclick="filterQ('all',this)">All</button>
+    <button class="filter-btn" onclick="filterQ('algebra',this)">Algebra</button>
+    <button class="filter-btn" onclick="filterQ('geometry',this)">Geometry</button>
+    <button class="filter-btn" onclick="filterQ('stats',this)">Statistics</button>
+    <button class="filter-btn" onclick="filterQ('calculus',this)">Calculus</button>
+  </div>
+
+  <div class="q-card" data-qtopic="algebra">
+    <div class="q-meta"><span class="q-badge badge-easy">Easy</span><span class="q-badge badge-topic">Arithmetic Sequences</span><span style="color:var(--muted);font-size:.78rem">[4 marks]</span></div>
+    <div class="q-text">The first term of an arithmetic sequence is <strong>3</strong> and the common difference is <strong>7</strong>.<br><br>(a) Write down the fourth term.<br>(b) Find the 20th term.<br>(c) Find the sum of the first 20 terms.</div>
+    <button class="reveal-btn" onclick="revealSolution(this)">▶ Show Solution</button>
+    <div class="solution">
+      <h4>✅ Solution</h4>
+      <ol>
+        <li><strong>(a)</strong> u₄ = 3 + (4−1)×7 = 3 + 21 = <strong>24</strong></li>
+        <li><strong>(b)</strong> u₂₀ = 3 + 19×7 = 3 + 133 = <strong>136</strong></li>
+        <li><strong>(c)</strong> S₂₀ = 20/2 × (2×3 + 19×7) = 10 × 139 = <strong>1390</strong></li>
+      </ol>
+      <div class="gdc-note">🔢 Also valid: S_n = n/2(u₁ + u_n) = 10 × (3 + 136) = 1390 ✓</div>
+    </div>
+  </div>
+
+  <div class="q-card" data-qtopic="geometry">
+    <div class="q-meta"><span class="q-badge badge-medium">Medium</span><span class="q-badge badge-topic">Sine &amp; Cosine Rule</span><span style="color:var(--muted);font-size:.78rem">[6 marks]</span></div>
+    <div class="q-text">Triangle ABC has AB = 12 cm, BC = 9 cm, and angle ABC = 67°.<br><br>(a) Find the length of AC.<br>(b) Find angle BAC.<br>(c) Find the area of triangle ABC.</div>
+    <button class="reveal-btn" onclick="revealSolution(this)">▶ Show Solution</button>
+    <div class="solution">
+      <h4>✅ Solution</h4>
+      <ol>
+        <li><strong>(a)</strong> AC² = 12² + 9² − 2(12)(9)cos67° ≈ 140.6 → AC ≈ <strong>11.9 cm</strong></li>
+        <li><strong>(b)</strong> sinBAC/9 = sin67°/11.9 → BAC ≈ <strong>43.9°</strong></li>
+        <li><strong>(c)</strong> Area = ½ × 12 × 9 × sin67° ≈ <strong>49.8 cm²</strong></li>
+      </ol>
+      <div class="gdc-note">🔢 Always draw a diagram! Make sure GDC is in DEGREE mode.</div>
+    </div>
+  </div>
+
+  <div class="q-card" data-qtopic="stats">
+    <div class="q-meta"><span class="q-badge badge-medium">Medium</span><span class="q-badge badge-topic">Normal Distribution</span><span style="color:var(--muted);font-size:.78rem">[5 marks]</span></div>
+    <div class="q-text">Student heights are normally distributed with μ = 168 cm and σ = 8 cm.<br><br>(a) Find P(160 &lt; X &lt; 180).<br>(b) Find the height exceeded by 10% of students.<br>(c) If there are 200 students, find the expected number taller than 180 cm.</div>
+    <button class="reveal-btn" onclick="revealSolution(this)">▶ Show Solution</button>
+    <div class="solution">
+      <h4>✅ Solution</h4>
+      <ol>
+        <li><strong>(a)</strong> normalcdf(160, 180, 168, 8) ≈ <strong>0.766</strong></li>
+        <li><strong>(b)</strong> invNorm(0.90, 168, 8) ≈ <strong>178.3 cm</strong></li>
+        <li><strong>(c)</strong> normalcdf(180, 9E99, 168, 8) ≈ 0.0668 → 200 × 0.0668 ≈ <strong>13 students</strong></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="q-card" data-qtopic="calculus">
+    <div class="q-meta"><span class="q-badge badge-hard">Hard</span><span class="q-badge badge-topic">Optimisation</span><span style="color:var(--muted);font-size:.78rem">[7 marks]</span></div>
+    <div class="q-text">A farmer has 120 m of fencing for a rectangular field against a straight wall (wall = one side, no fencing needed).<br><br>(a) Let x = width. Write the length in terms of x.<br>(b) Show that A = 120x − 2x².<br>(c) Find x that maximises area.<br>(d) Find the maximum area.</div>
+    <button class="reveal-btn" onclick="revealSolution(this)">▶ Show Solution</button>
+    <div class="solution">
+      <h4>✅ Solution</h4>
+      <ol>
+        <li><strong>(a)</strong> 2x + length = 120 → length = <strong>120 − 2x</strong></li>
+        <li><strong>(b)</strong> A = x(120 − 2x) = 120x − 2x² ✓</li>
+        <li><strong>(c)</strong> dA/dx = 120 − 4x = 0 → x = <strong>30 m</strong></li>
+        <li><strong>(d)</strong> A = 120(30) − 2(900) = 3600 − 1800 = <strong>1800 m²</strong></li>
+      </ol>
+      <div class="gdc-note">🔢 Verify: plot A = 120x − 2x² on GDC and use maximum function to confirm x = 30.</div>
+    </div>
+  </div>
+</section>
+
+<!-- GDC -->
+<section id="gdc">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(245,158,11,.1)">🔢</div>
+    <div><h2>GDC Calculator Skills</h2><p>Step-by-step guides for both IB-approved calculators</p></div>
+  </div>
+  <div class="gdc-selector">
+    <button class="gdc-btn active" onclick="switchGDC('casio')" id="gdc-casio">📱 CASIO fx-CG50 / fx-9860G</button>
+    <button class="gdc-btn" onclick="switchGDC('ti')" id="gdc-ti">📱 TI-Nspire CX</button>
+  </div>
+
+  <div class="gdc-section active" id="gdc-casio-content">
+    <div style="margin-bottom:1rem;padding:.6rem 1rem;background:var(--ib-pale);border-radius:8px;font-size:.8rem;color:var(--ib-mid)">
+      📹 All steps below align with <strong>Revision Village GDC Tips</strong> videos (revisionvillage.com). Use alongside their video walkthroughs for best results.
+    </div>
+    <div class="skill-list">
+
+      <!-- 1: Statistics — Mean, SD, Median -->
+      <div class="skill-item">
+        <div class="skill-header" onclick="toggleSkill(this)">
+          <div class="skill-title"><div class="icon">📉</div><div><h3>One-Variable Statistics</h3><p>Mean, SD, median, quartiles from a list</p></div></div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="skill-body">
+          <ol class="steps-list">
+            <li>Press <span class="key-btn">MENU</span> → <strong>2: Statistics</strong></li>
+            <li>Enter data values in <strong>List 1</strong></li>
+            <li>Press <span class="key-btn">CALC</span> (F2) → <strong>1VAR</strong> (F1)</li>
+            <li>Read: <strong>x̄</strong> = mean, <strong>σx</strong> = population SD, <strong>sx</strong> = sample SD, <strong>Med</strong> = median, <strong>Q1</strong>, <strong>Q3</strong></li>
+          </ol>
+          <div class="screen-sim">1-Variable<br>x̄ = 15.4<br>σx = 3.82 · sx = 4.04<br>Med = 15 · Q1 = 12 · Q3 = 18</div>
+          <div class="gdc-note">💡 Use σx for population data; use sx for sample data. IB usually specifies which one to use.</div>
+        </div>
+      </div>
+
+      <!-- 2: Linear Regression -->
+      <div class="skill-item">
+        <div class="skill-header" onclick="toggleSkill(this)">
+          <div class="skill-title"><div class="icon">📊</div><div><h3>Linear Regression & Correlation</h3><p>Find ŷ = ax + b, Pearson's r</p></div></div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="skill-body">
+          <ol class="steps-list">
+            <li>Press <span class="key-btn">MENU</span> → select <strong>2: Statistics</strong></li>
+            <li>Enter x-values in List 1, y-values in List 2</li>
+            <li>Press <span class="key-btn">CALC</span> (F2) → <strong>REG</strong> (F3) → <strong>X</strong> (F1) for linear</li>
+            <li>Read: <strong>a</strong> = gradient, <strong>b</strong> = y-intercept, <strong>r</strong> = Pearson's correlation</li>
+          </ol>
+          <div class="screen-sim">LinearReg<br>a = 2.314<br>b = −1.802<br>r = 0.9842</div>
+          <div class="gdc-note">💡 If r doesn't appear: <span class="key-btn">SET</span> (F6) → set <strong>DiagnosticOn</strong> to ON. Always interpret r: |r| &gt; 0.9 = strong.</div>
+          <div class="concept-watchout">⚠️ IB uses ŷ = ax + b notation (a = gradient). Don't confuse with y = mx + c.</div>
+        </div>
+      </div>
+
+      <!-- 3: Solve Equations (nSolve equivalent) -->
+      <div class="skill-item">
+        <div class="skill-header" onclick="toggleSkill(this)">
+          <div class="skill-title"><div class="icon">🔍</div><div><h3>Solve Equations (Graph/Root)</h3><p>Find roots & solve f(x) = g(x)</p></div></div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="skill-body">
+          <ol class="steps-list">
+            <li>Press <span class="key-btn">MENU</span> → <strong>5: Graph</strong> → enter function as <strong>Y1</strong></li>
+            <li>To solve f(x) = 0: <span class="key-btn">G-Solv</span> (F5) → <strong>ROOT</strong> (F1)</li>
+            <li>To solve f(x) = k: enter k as Y2, then G-Solv → <strong>ISCT</strong> (F5)</li>
+            <li>Or from <strong>Run-Matrix</strong> mode: <span class="key-btn">OPTN</span> → <strong>NUMERIC</strong> → <strong>SOLVE</strong> → type equation</li>
+          </ol>
+          <div class="gdc-note">💡 Equation Solver method: MENU → 8: Equation → F3 (Solver). Type any equation with X and press SOLVE.</div>
+          <div class="concept-watchout">⚠️ If multiple roots exist, the GDC finds the nearest one to your cursor. Sketch the graph first!</div>
+        </div>
+      </div>
+
+      <!-- 4: Normal Distribution -->
+      <div class="skill-item">
+        <div class="skill-header" onclick="toggleSkill(this)">
+          <div class="skill-title"><div class="icon">🔔</div><div><h3>Normal Distribution</h3><p>Ncd (area) and InvNorm</p></div></div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="skill-body">
+          <ol class="steps-list">
+            <li>Press <span class="key-btn">MENU</span> → <strong>2: Statistics</strong> → <span class="key-btn">DIST</span> (F5)</li>
+            <li>For P(a &lt; X &lt; b): <strong>NORM</strong> (F1) → <strong>Ncd</strong> (F2)</li>
+            <li>Enter Lower, Upper, σ, μ → press <span class="key-btn">CALC</span></li>
+            <li>For inverse (find x given area): <strong>NORM</strong> → <strong>InvN</strong> (F3) → enter Area (tail), σ, μ</li>
+          </ol>
+          <div class="screen-sim">Normal C.D.<br>Lower: 160 · Upper: 180<br>σ: 8 · μ: 168<br>p = 0.7659</div>
+          <div class="gdc-note">💡 P(X &gt; a): set Upper = 1E99. P(X &lt; b): set Lower = −1E99. InvN tail: Left = left-tail area.</div>
+        </div>
+      </div>
+
+      <!-- 5: Binomial Distribution -->
+      <div class="skill-item">
+        <div class="skill-header" onclick="toggleSkill(this)">
+          <div class="skill-title"><div class="icon">🎲</div><div><h3>Binomial Distribution</h3><p>BinomialPDF and BinomialCDF</p></div></div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="skill-body">
+          <ol class="steps-list">
+            <li>Press <span class="key-btn">MENU</span> → <strong>2: Statistics</strong> → <span class="key-btn">DIST</span> (F5) → <strong>BINM</strong> (F5)</li>
+            <li>For <strong>P(X = r)</strong>: select <strong>Bpd</strong> (F1) → enter x, N, p → <span class="key-btn">CALC</span></li>
+            <li>For <strong>P(X ≤ r)</strong>: select <strong>Bcd</strong> (F2) → enter x, N, p → <span class="key-btn">CALC</span></li>
+            <li>For <strong>P(X ≥ r)</strong>: use 1 − Bcd(r−1, N, p)</li>
+          </ol>
+          <div class="screen-sim">Binomial C.D.<br>x: 3 · N: 10 · p: 0.4<br>P(X ≤ 3) = 0.3823</div>
+          <div class="gdc-note">💡 X ~ B(n, p) → use Bpd for exact value, Bcd for cumulative. P(X ≥ 4) = 1 − P(X ≤ 3).</div>
+          <div class="concept-watchout">⚠️ Read carefully: "at least 4" means P(X ≥ 4), "at most 3" means P(X ≤ 3).</div>
+        </div>
+      </div>
+
+      <!-- 6: Chi-Squared Test -->
+      <div class="skill-item">
+        <div class="skill-header" onclick="toggleSkill(this)">
+          <div class="skill-title"><div class="icon">χ²</div><div><h3>Chi-Squared Test (Goodness of Fit / Independence)</h3><p>Hypothesis testing for categorical data</p></div></div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="skill-body">
+          <ol class="steps-list">
+            <li>Press <span class="key-btn">MENU</span> → <strong>2: Statistics</strong> → <span class="key-btn">TEST</span> (F3) → <strong>CHI</strong> (F3)</li>
+            <li><strong>GOF test</strong> (F1): Enter observed values in List 1, expected values in List 2 → set df → <span class="key-btn">CALC</span></li>
+            <li><strong>Independence test</strong> (F2): Enter contingency table into Matrix A first (<span class="key-btn">SHIFT</span>+<span class="key-btn">4</span> to access Matrix) → then run test</li>
+            <li>Read: <strong>χ²</strong> statistic, <strong>p-value</strong>, and <strong>df</strong></li>
+          </ol>
+          <div class="screen-sim">χ²-Test<br>χ² = 4.521<br>p = 0.0341<br>df = 1</div>
+          <div class="gdc-note">💡 Compare p-value to significance level (usually 0.05). If p &lt; 0.05 → reject H₀.</div>
+          <div class="concept-watchout">⚠️ State H₀ and H₁ before calculating. H₀ = "no association" / "fits expected distribution".</div>
+        </div>
+      </div>
+
+      <!-- 7: TVM Finance Solver -->
+      <div class="skill-item">
+        <div class="skill-header" onclick="toggleSkill(this)">
+          <div class="skill-title"><div class="icon">💰</div><div><h3>TVM — Finance Solver</h3><p>Loans, savings, compound interest, annuities</p></div></div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="skill-body">
+          <ol class="steps-list">
+            <li>Press <span class="key-btn">MENU</span> → select <strong>TVM</strong> (App 8 or <strong>MENU → E</strong> on fx-CG50)</li>
+            <li>Enter known values: <strong>N</strong> (periods), <strong>I%</strong> (annual rate), <strong>PV</strong>, <strong>PMT</strong>, <strong>FV</strong></li>
+            <li>Set <strong>P/Y</strong> and <strong>C/Y</strong> = compoundings per year (e.g. monthly = 12)</li>
+            <li>Move cursor to the unknown field → press <span class="key-btn">SOLVE</span></li>
+          </ol>
+          <div class="screen-sim">N=48 · I%=6.5<br>PV=−10000 · PMT=0<br>FV = ? → SOLVE<br>FV = 13600.98</div>
+          <div class="gdc-note">💡 Sign convention: money you pay OUT is negative (PV for a loan/investment). Money you receive is positive.</div>
+          <div class="concept-watchout">⚠️ For annuities: PMT ≠ 0. Make sure P/Y and C/Y match the payment frequency!</div>
+        </div>
+      </div>
+
+      <!-- 8: Graph Max/Min/Intersection -->
+      <div class="skill-item">
+        <div class="skill-header" onclick="toggleSkill(this)">
+          <div class="skill-title"><div class="icon">📈</div><div><h3>Graph → Max / Min / Intersection</h3><p>Plotting functions & analysis tools</p></div></div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="skill-body">
+          <ol class="steps-list">
+            <li>Press <span class="key-btn">MENU</span> → <strong>5: Graph</strong> → type function → <span class="key-btn">EXE</span></li>
+            <li>Press <span class="key-btn">DRAW</span> (F6) to plot. Adjust window: <span class="key-btn">SHIFT</span>+<span class="key-btn">F3</span> (<strong>V-Window</strong>)</li>
+            <li>Max/Min: <span class="key-btn">G-Solv</span> (F5) → <strong>MAX</strong> (F2) or <strong>MIN</strong> (F3)</li>
+            <li>Intersections: enter second function in Y2 → G-Solv → <strong>ISCT</strong> (F5)</li>
+          </ol>
+          <div class="gdc-note">💡 Use <strong>Zoom: Auto</strong> (<span class="key-btn">SHIFT</span>+<span class="key-btn">F2</span> → Auto) to auto-fit the window if you can't see the graph.</div>
+          <div class="concept-watchout">⚠️ If G-Solv finds the wrong turning point, move the cursor closer to the correct one before pressing.</div>
+        </div>
+      </div>
+
+      <!-- 9: Definite Integral -->
+      <div class="skill-item">
+        <div class="skill-header" onclick="toggleSkill(this)">
+          <div class="skill-title"><div class="icon">∫</div><div><h3>Definite Integral (Area)</h3><p>Calculate area under a curve</p></div></div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="skill-body">
+          <ol class="steps-list">
+            <li>Plot function in Graph mode → press <span class="key-btn">DRAW</span></li>
+            <li>Press <span class="key-btn">G-Solv</span> (F5) → scroll right (►) to find <strong>∫dx</strong></li>
+            <li>Enter lower bound → <span class="key-btn">EXE</span> → enter upper bound → <span class="key-btn">EXE</span></li>
+            <li>Shaded area value displays at the bottom</li>
+          </ol>
+          <div class="gdc-note">💡 From Run-Matrix screen: <span class="key-btn">OPTN</span> → <strong>CALC</strong> → <strong>∫dx</strong> → type ∫(f(x), a, b) directly.</div>
+          <div class="concept-watchout">⚠️ Area BETWEEN two curves = ∫(top − bottom)dx. Split if functions cross within the interval.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="gdc-section" id="gdc-ti-content">
+    <div style="margin-bottom:1rem;padding:.6rem 1rem;background:var(--ib-pale);border-radius:8px;font-size:.8rem;color:var(--ib-mid)">
+      📹 All steps below align with <strong>Revision Village GDC Tips</strong> videos (revisionvillage.com). Use alongside their video walkthroughs for best results.
+    </div>
+    <div class="skill-list">
+
+      <!-- 1: One-Variable Stats -->
+      <div class="skill-item">
+        <div class="skill-header" onclick="toggleSkill(this)">
+          <div class="skill-title"><div class="icon">📉</div><div><h3>One-Variable Statistics</h3><p>Mean, SD, median, quartiles from a list</p></div></div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="skill-body">
+          <ol class="steps-list">
+            <li>Add a <strong>Lists &amp; Spreadsheet</strong> page. Enter data in column A; name it (e.g., <em>data</em>).</li>
+            <li>Calculator page → <span class="key-btn">Menu</span> → <strong>6: Statistics</strong> → <strong>1: Stat Calculations</strong> → <strong>1: One-Variable Stats</strong></li>
+            <li>Set X1 List to your column name → <span class="key-btn">OK</span></li>
+            <li>Read: <strong>x̄</strong>, <strong>sx</strong> (sample SD), <strong>σx</strong> (pop SD), <strong>Median</strong>, <strong>Q1</strong>, <strong>Q3</strong></li>
+          </ol>
+          <div class="screen-sim">One-Var Stats<br>x̄ = 15.4 · sx = 4.04<br>σx = 3.82<br>Median = 15 · Q1 = 12</div>
+          <div class="gdc-note">💡 Shortcut: in a Calculator page type <strong>mean(data)</strong>, <strong>stdev(data)</strong>, or <strong>median(data)</strong> directly.</div>
+        </div>
+      </div>
+
+      <!-- 2: Linear Regression -->
+      <div class="skill-item">
+        <div class="skill-header" onclick="toggleSkill(this)">
+          <div class="skill-title"><div class="icon">📊</div><div><h3>Linear Regression & Correlation</h3><p>Scatter plot + regression line + r</p></div></div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="skill-body">
+          <ol class="steps-list">
+            <li>Add a <strong>Lists &amp; Spreadsheet</strong> page. Enter x in column A (name: <em>xvals</em>), y in column B (name: <em>yvals</em>).</li>
+            <li>Add a <strong>Data &amp; Statistics</strong> page. Assign x and y axes to your column names.</li>
+            <li>Press <span class="key-btn">Menu</span> → <strong>4: Analyze</strong> → <strong>6: Regression</strong> → <strong>2: Show Linear (mx+b)</strong></li>
+            <li>Regression equation and <strong>r²</strong> appear on the plot. Take √(r²) for r (check sign from graph).</li>
+          </ol>
+          <div class="gdc-note">💡 Calculator page shortcut: <strong>linRegMx({xvals},{yvals})</strong> returns m, b, r² instantly.</div>
+          <div class="concept-watchout">⚠️ TI-Nspire shows r² by default. To get r: √(r²). For negative correlation, r = −√(r²).</div>
+        </div>
+      </div>
+
+      <!-- 3: nSolve / Equation Solver -->
+      <div class="skill-item">
+        <div class="skill-header" onclick="toggleSkill(this)">
+          <div class="skill-title"><div class="icon">🔍</div><div><h3>nSolve — Solving Equations</h3><p>Find roots numerically (nSolve)</p></div></div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="skill-body">
+          <ol class="steps-list">
+            <li>Go to a <strong>Calculator</strong> page</li>
+            <li>Type: <strong>nSolve(equation, variable)</strong> e.g. <strong>nSolve(x²−5x+4=0, x)</strong></li>
+            <li>Press <span class="key-btn">Enter</span> → returns one solution (nearest to x=0 by default)</li>
+            <li>To specify a range: <strong>nSolve(f(x)=0, x, a, b)</strong> finds root between a and b</li>
+          </ol>
+          <div class="screen-sim">nSolve(x²−5x+4=0,x,0,3)<br>▶ 1<br>nSolve(x²−5x+4=0,x,3,6)<br>▶ 4</div>
+          <div class="gdc-note">💡 Always sketch the graph first to know how many solutions exist and estimate their location.</div>
+          <div class="concept-watchout">⚠️ nSolve finds ONE root. For multiple roots, call it multiple times with different ranges.</div>
+        </div>
+      </div>
+
+      <!-- 4: Normal Distribution -->
+      <div class="skill-item">
+        <div class="skill-header" onclick="toggleSkill(this)">
+          <div class="skill-title"><div class="icon">🔔</div><div><h3>Normal Distribution</h3><p>normCdf and invNorm</p></div></div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="skill-body">
+          <ol class="steps-list">
+            <li>Go to a <strong>Calculator</strong> page</li>
+            <li>P(a &lt; X &lt; b): <span class="key-btn">Menu</span> → <strong>6: Statistics</strong> → <strong>5: Distributions</strong> → <strong>2: Normal Cdf</strong></li>
+            <li>Enter Lower Bound, Upper Bound, μ, σ → <span class="key-btn">OK</span></li>
+            <li>Inverse: Distributions → <strong>3: Inverse Normal</strong> → enter Area (left-tail), μ, σ</li>
+          </ol>
+          <div class="screen-sim">normCdf(160,180,168,8)<br>▶ 0.765892</div>
+          <div class="gdc-note">💡 Use 9E999 for +∞ and −9E999 for −∞. Or just type <strong>normCdf(a,b,μ,σ)</strong> directly.</div>
+        </div>
+      </div>
+
+      <!-- 5: Binomial Distribution -->
+      <div class="skill-item">
+        <div class="skill-header" onclick="toggleSkill(this)">
+          <div class="skill-title"><div class="icon">🎲</div><div><h3>Binomial Distribution</h3><p>binomPdf and binomCdf</p></div></div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="skill-body">
+          <ol class="steps-list">
+            <li>Calculator page → <span class="key-btn">Menu</span> → <strong>6: Statistics</strong> → <strong>5: Distributions</strong></li>
+            <li><strong>P(X = r)</strong>: select <strong>5: Binomial Pdf</strong> → enter n, p, x → <span class="key-btn">OK</span></li>
+            <li><strong>P(X ≤ r)</strong>: select <strong>6: Binomial Cdf</strong> → enter n, p, Lower (0), Upper (r) → <span class="key-btn">OK</span></li>
+            <li><strong>P(X ≥ r)</strong>: use 1 − binomCdf(n, p, r−1)</li>
+          </ol>
+          <div class="screen-sim">binomCdf(10,0.4,0,3)<br>▶ 0.382278<br>(= P(X ≤ 3))</div>
+          <div class="gdc-note">💡 Shortcut: type <strong>binomPdf(n,p,x)</strong> or <strong>binomCdf(n,p,0,x)</strong> directly in the Calculator page.</div>
+          <div class="concept-watchout">⚠️ Double-check: "fewer than 4" = P(X ≤ 3). "More than 3" = P(X ≥ 4) = 1 − P(X ≤ 3).</div>
+        </div>
+      </div>
+
+      <!-- 6: Chi-Squared Test -->
+      <div class="skill-item">
+        <div class="skill-header" onclick="toggleSkill(this)">
+          <div class="skill-title"><div class="icon">χ²</div><div><h3>Chi-Squared Test (Independence)</h3><p>Hypothesis testing for categorical data</p></div></div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="skill-body">
+          <ol class="steps-list">
+            <li>Calculator page → <span class="key-btn">Menu</span> → <strong>6: Statistics</strong> → <strong>7: Stat Tests</strong> → <strong>8: Chi-Square 2-Way Test</strong></li>
+            <li>Enter your contingency table as a matrix (or in a Lists &amp; Spreadsheet page)</li>
+            <li>Set the observed matrix → <span class="key-btn">OK</span> → run the test</li>
+            <li>Read: <strong>χ²</strong> statistic, <strong>p-value</strong>, <strong>df</strong>, and <strong>expected frequency matrix</strong></li>
+          </ol>
+          <div class="screen-sim">Chi² 2-Way Test<br>χ² = 4.521<br>p = 0.0341<br>df = 1</div>
+          <div class="gdc-note">💡 Check expected frequencies — all must be ≥ 5 for the test to be valid. IB will tell you if this condition is met.</div>
+          <div class="concept-watchout">⚠️ Always state H₀ ("there is no association between...") and H₁ before running the test. Compare p to α = 0.05.</div>
+        </div>
+      </div>
+
+      <!-- 7: Finance Solver -->
+      <div class="skill-item">
+        <div class="skill-header" onclick="toggleSkill(this)">
+          <div class="skill-title"><div class="icon">💰</div><div><h3>Finance Solver (TVM)</h3><p>Compound interest, loans, annuities</p></div></div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="skill-body">
+          <ol class="steps-list">
+            <li>Calculator page → <span class="key-btn">Menu</span> → <strong>8: Finance</strong> → <strong>1: Finance Solver</strong></li>
+            <li>Fill in all known fields: <strong>N</strong>, <strong>I%</strong>, <strong>PV</strong>, <strong>Pmt</strong>, <strong>FV</strong>, <strong>PpY</strong>, <strong>CpY</strong></li>
+            <li>Move cursor to the unknown field → press <span class="key-btn">Enter</span> to solve</li>
+          </ol>
+          <div class="gdc-note">💡 PpY = payments/year, CpY = compoundings/year. For annual: both = 1. For monthly: both = 12.</div>
+          <div class="concept-watchout">⚠️ Sign convention: cash OUT = negative, cash IN = positive. For a savings account, PV is negative (you deposit).</div>
+        </div>
+      </div>
+
+      <!-- 8: Graph Plotting & Analysis -->
+      <div class="skill-item">
+        <div class="skill-header" onclick="toggleSkill(this)">
+          <div class="skill-title"><div class="icon">📈</div><div><h3>Plotting Functions & Analysis Tools</h3><p>Max, min, intersections, zeros</p></div></div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="skill-body">
+          <ol class="steps-list">
+            <li>Add a <strong>Graphs</strong> page. Type function in entry bar → <span class="key-btn">Enter</span></li>
+            <li>Zeros/Roots: <span class="key-btn">Menu</span> → <strong>6: Analyze Graph</strong> → <strong>1: Zero</strong></li>
+            <li>Maximum: Analyze Graph → <strong>3: Maximum</strong> → click lower then upper bound</li>
+            <li>Intersections: plot both functions → Analyze Graph → <strong>4: Intersection</strong></li>
+          </ol>
+          <div class="gdc-note">💡 <span class="key-btn">Ctrl</span>+<span class="key-btn">T</span> opens a table of values alongside the graph — great for checking turning points and verifying answers.</div>
+          <div class="concept-watchout">⚠️ Adjust the window (<span class="key-btn">Menu</span> → <strong>4: Window/Zoom</strong>) if you can't see the key features of the graph.</div>
+        </div>
+      </div>
+
+      <!-- 9: Definite Integral -->
+      <div class="skill-item">
+        <div class="skill-header" onclick="toggleSkill(this)">
+          <div class="skill-title"><div class="icon">∫</div><div><h3>Definite Integral (Area)</h3><p>Area under a curve</p></div></div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="skill-body">
+          <ol class="steps-list">
+            <li>Calculator page: use the <strong>template palette</strong> (book icon) to type ∫ symbol, or type <strong>∫(f(x), x, a, b)</strong></li>
+            <li>Or Graphs page: plot function → <span class="key-btn">Menu</span> → <strong>6: Analyze Graph</strong> → <strong>6: Integral</strong></li>
+            <li>Click lower bound then upper bound — shaded area and numerical value display</li>
+          </ol>
+          <div class="screen-sim">∫(2x²−3x+1,x,0,4)<br>▶ 22.6667</div>
+          <div class="gdc-note">💡 For area between two curves: integrate (top − bottom). Or compute two separate integrals and subtract.</div>
+          <div class="concept-watchout">⚠️ Area is always positive. If the integral gives a negative value, the region is below the x-axis — take the absolute value.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+<footer>
+  ISHCMC Class of 2026 · Built for IB Math AI SL revision · Always verify with your official formula booklet<br><br>
+  <span style="color:var(--border)">Next steps: add more questions, progress tracking, past paper links, MathJax for better formula rendering</span>
+</footer>
+
+<script>
+function toggleConcept(btn){
+  const body=btn.nextElementSibling;
+  const arrow=btn.querySelector('.exp-arrow');
+  const open=body.classList.contains('open');
+  body.classList.toggle('open');
+  arrow.textContent=open?'▾':'▴';
+  btn.style.borderStyle=open?'dashed':'solid';
+  btn.style.color=open?'':'var(--accent)';
+  btn.style.borderColor=open?'':'var(--accent)';
+}
+function switchTab(name){
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+  document.getElementById(name).classList.add('active');
+  document.getElementById('tab-'+name).classList.add('active');
+  document.getElementById('nav-'+name).classList.add('active');
+}
+function filterFormulas(topic,btn){
+  document.querySelectorAll('#formula-filters .filter-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('#formula-grid .formula-card').forEach(c=>{
+    c.style.display=(topic==='all'||c.dataset.topic===topic)?'':'none';
+  });
+}
+function filterQ(topic,btn){
+  document.querySelectorAll('.q-filters .filter-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.q-card').forEach(c=>{
+    c.style.display=(topic==='all'||c.dataset.qtopic===topic)?'':'none';
+  });
+}
+function revealSolution(btn){
+  const sol=btn.nextElementSibling;
+  const on=sol.classList.contains('shown');
+  sol.classList.toggle('shown');
+  btn.textContent=on?'▶ Show Solution':'▼ Hide Solution';
+}
+function switchGDC(model){
+  document.querySelectorAll('.gdc-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.gdc-section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('gdc-'+model).classList.add('active');
+  document.getElementById('gdc-'+model+'-content').classList.add('active');
+}
+function toggleSkill(header){
+  header.parentElement.classList.toggle('open');
+}
+
+// ── Countdown ──────────────────────────────────────────────────────────────
+function daysUntil(dateStr){
+  const today = new Date(); today.setHours(0,0,0,0);
+  const target = new Date(dateStr); target.setHours(0,0,0,0);
+  return Math.ceil((target - today)/(1000*60*60*24));
+}
+function setCountdown(dayId, cardId, dateStr){
+  const d = daysUntil(dateStr);
+  const el = document.getElementById(dayId);
+  const card = document.getElementById(cardId);
+  const sub = card.querySelector('.cd-sub');
+  if(d > 0){ el.textContent = d; }
+  else if(d === 0){ el.textContent = 'TODAY'; card.classList.add('done'); sub.textContent = '🔥 Good luck!'; }
+  else { el.textContent = 'Done'; card.classList.add('done'); sub.textContent = Math.abs(d)+' days ago'; }
+}
+setCountdown('days-mock1','cd-mock1','2026-03-25');
+setCountdown('days-mock2','cd-mock2','2026-03-26');
+setCountdown('days-ib1',  'cd-ib1',  '2026-05-14');
+setCountdown('days-ib2',  'cd-ib2',  '2026-05-15');
+
+// ── KaTeX render ────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\\(', right: '\\)', display: false},
+      {left: '\\[', right: '\\]', display: true}
+    ],
+    throwOnError: false
+  });
+});
+</script>
+</body>
+</html>
